@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
+  const [data, setData] = useState(null);
+  const sendRequest = async () => {
+    const response = axios.get("http://localhost:8082/test");
+    if(response){
+      console.log(response);
+      setData(response.data);
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Testing aws MERN connectivity</h1>
+      <button onClick={()=> sendReq()}>send</button>
+      {data && data.response.map((ele)=>{
+        return <p>{ele.name}</p>
+      })}
     </div>
   );
 }
