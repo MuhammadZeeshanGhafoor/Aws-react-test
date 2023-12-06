@@ -6,7 +6,7 @@ import { useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
   const sendRequest = async () => {
-    const response = axios.get("http://localhost:8082/test");
+    const response = axios.get("http://51.20.130.9/test");
     if(response){
       console.log(response);
       setData(response.data);
