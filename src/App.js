@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <h1>Testing aws MERN connectivity</h1>
-      <button onClick={()=> sendReq()}>send</button>
+      <button onClick={()=> sendRequest()}>send</button>
       {data && data.response.map((ele)=>{
         return <p>{ele.name}</p>
       })}
